@@ -1,0 +1,146 @@
+{
+    "$schema": "https://schema.freqtrade.io/schema.json",
+    "max_open_trades": 3,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "EUR",
+    "timeframe": "5m",
+    "dry_run": true,
+    "dry_run_wallet": 100,
+    "cancel_open_orders_on_exit": false,
+    "trading_mode": "spot",
+    "margin_mode": "",
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 10,
+        "exit_timeout_count": 0,
+        "unit": "minutes"
+    },
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+    "exit_pricing":{
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+    "exchange": {
+        "name": "cryptocom",
+        "key": "uZStFoEhfvjdJ7svrps7TL",
+        "secret": "cxakp_oUQh8o5QnpURTTMGTUJFtS",
+        "ccxt_config": {},
+        "ccxt_async_config": {},
+        "pair_whitelist": [
+            "BTC/USDT"
+        ],
+        "pair_blacklist": [
+        ]
+    },
+    "pairlists": [
+        {
+            "method": "StaticPairList",
+            "number_assets": 20,
+            "sort_key": "quoteVolume",
+            "min_value": 0,
+            "refresh_period": 180
+        }
+    ],
+    "freqai": {
+        "enabled": true,
+        "purge_old_models": 2,
+        "train_period_days": 1,
+        "fit_live_predictions_candles": 100,
+        "backtest_period_days": 7,
+        "live_retrain_hours": 0,
+        "continual_learning": false,
+        "identifier": "btc-bot",
+        "feature_parameters": {
+            "include_timeframes": [
+                "5m",
+                "15m",
+                "1h"
+            ],
+            "include_corr_pairlist": [
+                "BTC/USDT"
+                
+            ],
+            "label_period_candles": 20,
+            "include_shifted_candles": 2,
+            "DI_threshold": 0.9,
+            "weight_factor": 0.9,
+            "principal_component_analysis": false,
+            "use_SVM_to_remove_outliers": true,
+            "indicator_periods_candles": [
+                10,
+                20
+            ],
+            "plot_feature_importances": 0
+        },
+        "data_split_parameters": {
+            "test_size": 0.33,
+            "random_state": 1
+        },
+        "model_training_parameters": {
+           
+        }
+    },
+    "telegram": {
+        "enabled": true,
+        "token": "7806016024:AAH0TZ2BNAaWFt5H6epo0fyumvhCIqvAzag",
+        "chat_id": "7527294568",
+        "allow_custom_messages": true,
+        "notification_settings": {
+        "status": "silent",
+        "warning": "on",
+        "startup": "off",
+        "entry": "silent",
+        "entry_fill": "on",
+        "entry_cancel": "silent",
+        "exit": {
+            "roi": "silent",
+            "emergency_exit": "on",
+            "force_exit": "on",
+            "exit_signal": "silent",
+            "trailing_stop_loss": "on",
+            "stop_loss": "on",
+            "stoploss_on_exchange": "on",
+            "custom_exit": "silent",
+            "partial_exit": "on"
+        },
+        "exit_cancel": "on",
+        "exit_fill": "off",
+        "protection_trigger": "off",
+        "protection_trigger_global": "on",
+        "strategy_msg": "off",
+        "show_candle": "off"
+        },
+    "reload": true,
+    "balance_dust_level": 0.01
+    },
+    "api_server": {
+        "enabled": false,
+        "listen_ip_address": "0.0.0.0",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": false,
+        "jwt_secret_key": "211873b32987018b25173e7a84ca71b0b623a50b532317cfa0a060b615807fb7",
+        "ws_token": "iLWKtNRe1GVxgbA13LzcwF6DdJnpQr3rKg",
+        "CORS_origins": [],
+        "username": "bitcoin",
+        "password": "arek1977"
+    },
+    "bot_name": "arek77_bot",
+    "initial_state": "running",
+    "force_entry_enable": true,
+    "internals": {
+        "process_throttle_secs": 5
+    }
+}
